@@ -90,7 +90,7 @@ var LinkedList = /** @class */ (function () {
                 tempPointer = tempPointer.next;
                 n++;
             }
-            console.log(tempPointer === null || tempPointer === void 0 ? void 0 : tempPointer.value);
+            return tempPointer;
         }
         else {
             console.log("index out of bound");
@@ -147,29 +147,18 @@ var LinkedList = /** @class */ (function () {
             console.log("linkedlist is empty");
         }
         else if (index >= 0 && index < this.length) {
-            var n = 0;
-            var tempPointer = this.head;
-            var prevPointer = void 0;
-            while (n < index && tempPointer.next.next) {
-                prevPointer = tempPointer;
-                tempPointer = tempPointer.next;
-                n++;
+            if (index === 0) {
+                this.shift();
             }
-            if (index === 0 && this.length === 1) {
-                this.head = null;
-                this.tail = this.head;
-            }
-            else if (index === 0) {
-                this.head = tempPointer.next;
-                tempPointer.next = null;
-            }
-            else if (!tempPointer.next.next) {
-                this.tail = tempPointer;
-                tempPointer.next = null;
+            else if (index === this.length - 1) {
+                this.pop();
             }
             else {
+                var prevPointer = this.get(index - 1);
+                var tempPointer = prevPointer.next;
                 prevPointer.next = tempPointer.next;
                 tempPointer.next = null;
+                console.log(tempPointer);
             }
             this.length--;
         }
@@ -177,13 +166,35 @@ var LinkedList = /** @class */ (function () {
             console.log("Index out of bound");
         }
     };
+    LinkedList.prototype.reverse = function () {
+        if (!this.head) {
+            console.log("linkedlist is empty");
+            return;
+        }
+        var tempPointer = this.head;
+        var prevPointer = tempPointer;
+        var nextPointer = tempPointer.next;
+        this.head = this.tail;
+        this.tail = tempPointer;
+        if (this.length > 2) {
+            while (nextPointer) {
+                tempPointer = nextPointer;
+                nextPointer = tempPointer.next;
+                tempPointer.next = prevPointer;
+                prevPointer = tempPointer;
+            }
+        }
+        this.tail.next = null;
+        console.log(this);
+    };
     return LinkedList;
 }());
-var linkedList = new LinkedList(5);
-linkedList.push(2);
+var linkedList = new LinkedList(2);
 linkedList.push(5);
 linkedList.push(7);
 linkedList.push(9);
+linkedList.push(11);
+linkedList.push(13);
 // console.log("=================================== PUSH");
 // linkedList.get(0);
 // linkedList.get(3);
@@ -213,5 +224,6 @@ linkedList.push(9);
 // linkedList.get(0);
 // linkedList.get(1);
 // console.log("=================================== GET");
-linkedList.remove(4);
-linkedList.get(3);
+// linkedList.remove(2);
+// console.log(linkedList.get(2));
+linkedList.reverse();
