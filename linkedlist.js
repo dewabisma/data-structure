@@ -1,4 +1,6 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Nodeku = void 0;
 var Nodeku = /** @class */ (function () {
     function Nodeku(value) {
         this.value = value;
@@ -6,6 +8,7 @@ var Nodeku = /** @class */ (function () {
     }
     return Nodeku;
 }());
+exports.Nodeku = Nodeku;
 var LinkedList = /** @class */ (function () {
     function LinkedList(value) {
         var newNode = new Nodeku(value);
@@ -190,11 +193,11 @@ var LinkedList = /** @class */ (function () {
     return LinkedList;
 }());
 var linkedList = new LinkedList(2);
-linkedList.push(5);
-linkedList.push(7);
-linkedList.push(9);
-linkedList.push(11);
-linkedList.push(13);
+// linkedList.push(5);
+// linkedList.push(7);
+// linkedList.push(9);
+// linkedList.push(11);
+// linkedList.push(13);
 // console.log("=================================== PUSH");
 // linkedList.get(0);
 // linkedList.get(3);
@@ -226,4 +229,4 @@ linkedList.push(13);
 // console.log("=================================== GET");
 // linkedList.remove(2);
 // console.log(linkedList.get(2));
-linkedList.reverse();
+// linkedList.reverse();

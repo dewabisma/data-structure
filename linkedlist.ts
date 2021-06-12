@@ -1,4 +1,4 @@
-class Nodeku<T> {
+export class Nodeku<T> {
   public value: T;
   public next: Nodeku<T> | null;
 
@@ -221,11 +221,11 @@ class LinkedList<T> {
 
 const linkedList = new LinkedList<number>(2);
 
-linkedList.push(5);
-linkedList.push(7);
-linkedList.push(9);
-linkedList.push(11);
-linkedList.push(13);
+// linkedList.push(5);
+// linkedList.push(7);
+// linkedList.push(9);
+// linkedList.push(11);
+// linkedList.push(13);
 // console.log("=================================== PUSH");
 // linkedList.get(0);
 // linkedList.get(3);
@@ -257,4 +257,4 @@ linkedList.push(13);
 // console.log("=================================== GET");
 // linkedList.remove(2);
 // console.log(linkedList.get(2));
-linkedList.reverse();
+// linkedList.reverse();
