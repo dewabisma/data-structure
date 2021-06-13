@@ -150,13 +150,30 @@ var DoublyLinkedlist = /** @class */ (function () {
         }
         return tempPointer;
     };
+    DoublyLinkedlist.prototype.remove = function (index) {
+        if (index === 0)
+            return this.shift();
+        if (index === this.length - 1)
+            return this.pop();
+        var tempPointer = this.get(index);
+        if (tempPointer instanceof NodeDLL) {
+            var prevPointer = tempPointer.prev;
+            var nextPointer = tempPointer.next;
+            tempPointer.next = null;
+            tempPointer.prev = null;
+            prevPointer.next = nextPointer;
+            nextPointer.prev = prevPointer;
+            this.length--;
+        }
+        return tempPointer;
+    };
     return DoublyLinkedlist;
 }());
 var listku = new DoublyLinkedlist(1);
-// console.log(listku.push(5));
-// console.log(listku.push(2));
-// console.log(listku.push(7));
-// console.log(listku.push(9));
+console.log(listku.push(5));
+console.log(listku.push(2));
+console.log(listku.push(7));
+console.log(listku.push(9));
 // console.log(listku.push(11));
 // console.log(listku.push(12));
 // console.log(listku.push(20));
@@ -184,4 +201,7 @@ var listku = new DoublyLinkedlist(1);
 // console.log(listku.insert(0, 10));
 // console.log(listku.insert(2, 22));
 // console.log("========================= INSERT");
+// console.log(listku.remove(2));
+// console.log(listku.remove(3));
+// console.log("========================= REMOVE");
 console.log(listku);
