@@ -125,19 +125,51 @@ class DoublyLinkedlist<T> {
 
     return tempPointer;
   }
+
+  set(index: number, val: T) {
+    const desiredNode = this.get(index);
+
+    if (desiredNode instanceof NodeDLL) {
+      desiredNode.value = val;
+    }
+
+    return desiredNode;
+  }
+
+  insert(index: number, val: T) {
+    if (index === 0) return this.unshift(val);
+    if (index === this.length) return this.push(val);
+
+    const tempPointer = this.get(index);
+
+    if (tempPointer instanceof NodeDLL) {
+      const newNode = new NodeDLL(val);
+      const prevPointer = tempPointer.prev;
+
+      newNode.next = tempPointer;
+      newNode.prev = prevPointer;
+      tempPointer.prev = newNode;
+      prevPointer!.next = newNode;
+
+      this.length++;
+      return newNode;
+    }
+
+    return tempPointer;
+  }
 }
 
 const listku = new DoublyLinkedlist(1);
 
-console.log(listku.push(5));
-console.log(listku.push(2));
-console.log(listku.push(7));
-console.log(listku.push(9));
-console.log(listku.push(11));
-console.log(listku.push(12));
-console.log(listku.push(20));
+// console.log(listku.push(5));
+// console.log(listku.push(2));
+// console.log(listku.push(7));
+// console.log(listku.push(9));
+// console.log(listku.push(11));
+// console.log(listku.push(12));
+// console.log(listku.push(20));
 // console.log(listku.push(30));
-console.log("========================= PUSH");
+// console.log("========================= PUSH");
 
 // console.log(listku.pop());
 // console.log(listku.pop());
@@ -148,15 +180,23 @@ console.log("========================= PUSH");
 // console.log(listku.unshift(12));
 // console.log(listku.unshift(8));
 // console.log(listku.unshift(21));
-console.log("========================= UNSHIFT");
+// console.log("========================= UNSHIFT");
 
 // console.log(listku.shift());
 // console.log(listku.shift());
 // console.log(listku.shift());
 // console.log(listku.shift());
-console.log("========================= SHIFT");
+// console.log("========================= SHIFT");
 
-console.log(listku.get(4));
-console.log("========================= GET");
+// console.log(listku.get(4));
+// console.log("========================= GET");
+
+// console.log(listku.set(5, 10));
+// console.log(listku.set(7, 22));
+// console.log("========================= SET");
+
+// console.log(listku.insert(0, 10));
+// console.log(listku.insert(2, 22));
+// console.log("========================= INSERT");
 
 console.log(listku);
