@@ -52,6 +52,24 @@ class BinarySearchTree<T> {
 
     return newNode;
   }
+
+  contains(val: T) {
+    if (!this.root) return false;
+
+    let temp: NodeBST<T> | null = this.root;
+
+    while (temp) {
+      if (val === temp.value) {
+        return true;
+      } else if (val > temp.value!) {
+        temp = temp.right;
+      } else {
+        temp = temp.left;
+      }
+    }
+
+    return false;
+  }
 }
 
 const bst = new BinarySearchTree();
@@ -62,4 +80,8 @@ console.log(bst.insert(2));
 console.log(bst.insert(3));
 console.log(bst.insert(7));
 console.log(bst.insert(9));
+console.log("============= INSERT");
+console.log("contain 20: ", bst.contains(20));
+console.log("contain 3: ", bst.contains(3));
+console.log("============= CONTAINS");
 console.log(bst);
