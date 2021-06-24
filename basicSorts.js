@@ -21,15 +21,29 @@ var selectionSort = function (array) {
                 minValIndex = j;
             }
         }
-        var temp = array[i];
-        array[i] = array[minValIndex];
-        array[minValIndex] = temp;
+        if (i !== minValIndex) {
+            var temp = array[i];
+            array[i] = array[minValIndex];
+            array[minValIndex] = temp;
+        }
     }
     return array;
 };
 // Insertion Sort
+var insertionSort = function (array) {
+    for (var i = 1; i < array.length; i++) {
+        for (var j = i; array[j] < array[j - 1] && j > 0; j--) {
+            var temp = array[j - 1];
+            array[j - 1] = array[j];
+            array[j] = temp;
+        }
+    }
+    return array;
+};
 var ar1 = [9, 5, 4, 3, 1];
 console.log(bubbleSort(ar1));
 console.log("BUBBLE SORT");
 console.log(selectionSort(ar1));
 console.log("SELECTION SORT");
+console.log(insertionSort(ar1));
+console.log("INSERTION SORT");
