@@ -47,7 +47,7 @@ const insertionSort = (array: number[]) => {
   return array;
 };
 
-let ar1 = [9, 5, 4, 3, 1];
+let ar1 = [9, 5, 4, 3, 1, 2, 11, 2, 7, 11, 12];
 console.log(bubbleSort(ar1));
 console.log("BUBBLE SORT");
 

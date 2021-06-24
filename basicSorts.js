@@ -40,7 +40,7 @@ var insertionSort = function (array) {
     }
     return array;
 };
-var ar1 = [9, 5, 4, 3, 1];
+var ar1 = [9, 5, 4, 3, 1, 2, 11, 2, 7, 11, 12];
 console.log(bubbleSort(ar1));
 console.log("BUBBLE SORT");
 console.log(selectionSort(ar1));
