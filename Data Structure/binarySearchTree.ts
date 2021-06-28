@@ -1,4 +1,4 @@
-class NodeBST<T> {
+export class NodeBST<T> {
   public value: T | null;
   public left: NodeBST<T> | null;
   public right: NodeBST<T> | null;
@@ -10,8 +10,8 @@ class NodeBST<T> {
   }
 }
 
-class BinarySearchTree<T> {
-  private root: NodeBST<T> | null = null;
+export class BinarySearchTree<T> {
+  public root: NodeBST<T> | null = null;
 
   constructor(val?: T) {
     if (val) {
@@ -72,7 +72,8 @@ class BinarySearchTree<T> {
   }
 }
 
-const bst = new BinarySearchTree();
+const bst = new BinarySearchTree<number>();
+
 
 console.log(bst.insert(5));
 console.log(bst.insert(2));

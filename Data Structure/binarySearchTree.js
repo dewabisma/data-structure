@@ -1,4 +1,6 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BinarySearchTree = exports.NodeBST = void 0;
 var NodeBST = /** @class */ (function () {
     function NodeBST(val) {
         this.value = val;
@@ -7,6 +9,7 @@ var NodeBST = /** @class */ (function () {
     }
     return NodeBST;
 }());
+exports.NodeBST = NodeBST;
 var BinarySearchTree = /** @class */ (function () {
     function BinarySearchTree(val) {
         this.root = null;
@@ -66,6 +69,7 @@ var BinarySearchTree = /** @class */ (function () {
     };
     return BinarySearchTree;
 }());
+exports.BinarySearchTree = BinarySearchTree;
 var bst = new BinarySearchTree();
 console.log(bst.insert(5));
 console.log(bst.insert(2));
